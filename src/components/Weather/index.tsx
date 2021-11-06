@@ -30,4 +30,4 @@ const Weather = ({ city }: Props) => {
   );
 };
 
-export default React.memo(Weather);
+export default Weather;
