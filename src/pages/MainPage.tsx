@@ -17,7 +17,11 @@ const MainPage = () => {
   return (
     <>
       <SearchBar search={search} />
-      <ErrorBoundary fallback={<Fail />}>
+      <ErrorBoundary
+        fallback={
+          <Fail message={`Error occurred. Check city name '${city}'.`} />
+        }
+      >
         <Suspense fallback={<Loading />}>
           <Weather city={city} />
         </Suspense>
