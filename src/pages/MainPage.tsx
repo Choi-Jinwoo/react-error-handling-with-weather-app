@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import SearchBar from "../components/SearchBar";
 import Weather from "../components/Weather";
 
-const DEFAULT_CITY = "Daegu";
+const DEFAULT_CITY = "Seoul";
 
 const MainPage = () => {
   const [city, setCity] = useState(DEFAULT_CITY);
@@ -18,6 +18,7 @@ const MainPage = () => {
     <>
       <SearchBar search={search} />
       <ErrorBoundary
+        resetKey={city}
         fallback={
           <Fail message={`Error occurred. Check city name '${city}'.`} />
         }
