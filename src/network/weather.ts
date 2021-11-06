@@ -4,6 +4,11 @@ const BASE_URL = "https://api.openweathermap.org/data/2.5";
 const DEFAULT_CITY_NAME = "Daegu";
 
 type WeatherResponse = {
+  weather: {
+    id: number;
+    main: string;
+    description: string;
+  }[];
   main: {
     temp: number;
     feels_like: number;
