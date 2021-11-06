@@ -2,8 +2,8 @@ import "./index.css";
 
 const Loading = () => {
   return (
-    <div className="loading-indicator">
-      <div />
+    <div className="loading">
+      <div className="loading-indicator" />
     </div>
   );
 };

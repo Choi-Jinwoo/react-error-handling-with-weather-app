@@ -7,3 +7,7 @@ body {
   background-color: #058c9c;
   color: #ffffff;
 }
+
+.App {
+  width: 100%;
+}
