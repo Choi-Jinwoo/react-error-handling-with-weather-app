@@ -5,8 +5,14 @@
   margin-top: 60px;
 }
 
+.weather__text--city {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
 .weather__title {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .weather__description {

@@ -17,6 +17,7 @@ const Weather = ({ city }: Props) => {
 
   return (
     <section className="weather">
+      <p className="weather__text--city">Weather in {city}</p>
       <h1 className="weather__title">{weather[0].main}</h1>
       <p className="weather__description">{weather[0].description}</p>
       <img
