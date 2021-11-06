@@ -1,12 +1,14 @@
-import { QueryClientProvider, QueryClient } from "react-query";
-
-const queryClient = new QueryClient();
+import { Suspense } from "react";
+import Loading from "./components/Loading";
+import Weather from "./components/Weather";
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App"></div>;
-    </QueryClientProvider>
+    <div className="App">
+      <Suspense fallback={<Loading />}>
+        <Weather />
+      </Suspense>
+    </div>
   );
 }
 
