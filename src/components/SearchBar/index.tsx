@@ -1,5 +1,7 @@
 import { ChangeEventHandler } from "react";
 
+import "./index.css";
+
 const SEARCH_INPUT_PLACEHOLDER = "City (Seoul, London ...)";
 
 type Props = {
@@ -11,13 +13,15 @@ const SearchBar = ({ keyword, onChange }: Props) => {
   return (
     <section className="search-bar">
       <input
-        className="search-bar__input--search-input"
+        className="search-bar__input search-bar__input--search-input"
         type="text"
         value={keyword}
         onChange={onChange}
         placeholder={SEARCH_INPUT_PLACEHOLDER}
       />
-      <button className="search-bar__button--submit">Search</button>
+      <button className="search-bar__button search-bar__button--submit">
+        Search
+      </button>
     </section>
   );
 };
