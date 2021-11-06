@@ -3,8 +3,6 @@ const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 const BASE_ICON_URL = "https://openweathermap.org/img/wn";
 
-const DEFAULT_CITY_NAME = "Daegu";
-
 type WeatherResponse = {
   weather: {
     id: number;
@@ -22,9 +20,9 @@ type WeatherResponse = {
   };
 };
 
-export const fetchWeather = async (): Promise<WeatherResponse> => {
+export const fetchWeather = async (city: string): Promise<WeatherResponse> => {
   const res = await fetch(
-    `${BASE_URL}/weather?q=${DEFAULT_CITY_NAME}&appid=${WEATHER_API_KEY}&units=metric`
+    `${BASE_URL}/weather?q=${city}&appid=${WEATHER_API_KEY}&units=metric`
   );
 
   const body = await res.json();

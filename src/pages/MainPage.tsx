@@ -1,23 +1,25 @@
-import { ChangeEventHandler, Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Fail from "../components/Fail";
 import Loading from "../components/Loading";
 import SearchBar from "../components/SearchBar";
 import Weather from "../components/Weather";
 
-const MainPage = () => {
-  const [searchCity, setSearchCity] = useState("");
+const DEFAULT_CITY = "Daegu";
 
-  const onSearchCityChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setSearchCity(e.target.value);
+const MainPage = () => {
+  const [city, setCity] = useState(DEFAULT_CITY);
+
+  const search = (keyword: string) => {
+    setCity(keyword);
   };
 
   return (
     <>
-      <SearchBar keyword={searchCity} onChange={onSearchCityChange} />
+      <SearchBar search={search} />
       <ErrorBoundary fallback={<Fail />}>
         <Suspense fallback={<Loading />}>
-          <Weather />
+          <Weather city={city} />
         </Suspense>
       </ErrorBoundary>
     </>

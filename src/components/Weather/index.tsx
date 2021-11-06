@@ -4,8 +4,12 @@ import { composeIconURL } from "../../network/weather";
 
 import "./index.css";
 
-const Weather = () => {
-  const { data } = useWeather();
+type Props = {
+  city: string;
+};
+
+const Weather = ({ city }: Props) => {
+  const { data } = useWeather(city);
 
   if (data === undefined) return null;
 

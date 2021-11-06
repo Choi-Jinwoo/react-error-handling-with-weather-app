@@ -3,8 +3,8 @@ import { fetchWeather } from "../network/weather";
 
 const WEATHER_QUERY_KEY = "weather;";
 
-const useWeather = () => {
-  return useQuery(WEATHER_QUERY_KEY, fetchWeather, {
+const useWeather = (city: string) => {
+  return useQuery([WEATHER_QUERY_KEY, city], () => fetchWeather(city), {
     suspense: true,
     refetchOnWindowFocus: false,
   });
