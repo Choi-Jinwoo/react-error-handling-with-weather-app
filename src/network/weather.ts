@@ -26,10 +26,7 @@ export const fetchWeather = async (): Promise<WeatherResponse> => {
   const body = await res.json();
 
   if (!res.ok) {
-    throw {
-      status: res.status,
-      body,
-    };
+    throw new Error(res.status.toString());
   }
 
   return body;
