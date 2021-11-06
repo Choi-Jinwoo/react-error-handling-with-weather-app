@@ -4,6 +4,8 @@ import Fail from "./components/Fail";
 import Loading from "./components/Loading";
 import Weather from "./components/Weather";
 
+import "./index.css";
+
 function App() {
   return (
     <div className="App">
