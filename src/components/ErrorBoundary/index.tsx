@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  fallback: React.Component;
+  fallback: JSX.Element;
 };
 
 type State = {
@@ -16,6 +16,10 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   static getDerivedStateFromError(error: unknown) {
     return { hasError: true };
+  }
+
+  componentDidCatch(error: unknown) {
+    console.log(error);
   }
 
   render() {
