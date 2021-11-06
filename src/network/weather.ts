@@ -1,5 +1,7 @@
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
+const BASE_ICON_URL = "https://openweathermap.org/img/wn";
 
 const DEFAULT_CITY_NAME = "Daegu";
 
@@ -8,6 +10,7 @@ type WeatherResponse = {
     id: number;
     main: string;
     description: string;
+    icon: string;
   }[];
   main: {
     temp: number;
@@ -17,15 +20,11 @@ type WeatherResponse = {
     pressure: number;
     humidity: number;
   };
-  wind: {
-    speed: number;
-    deg: number;
-  };
 };
 
 export const fetchWeather = async (): Promise<WeatherResponse> => {
   const res = await fetch(
-    `${BASE_URL}/weather?q=${DEFAULT_CITY_NAME}&appid=${WEATHER_API_KEY}`
+    `${BASE_URL}/weather?q=${DEFAULT_CITY_NAME}&appid=${WEATHER_API_KEY}&units=metric`
   );
 
   const body = await res.json();
@@ -35,4 +34,8 @@ export const fetchWeather = async (): Promise<WeatherResponse> => {
   }
 
   return body;
+};
+
+export const composeIconURL = (icon: string) => {
+  return `${BASE_ICON_URL}/${icon}@4x.png`;
 };
