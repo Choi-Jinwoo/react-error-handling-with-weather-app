@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, KeyboardEventHandler, useState } from "react";
 
 import "./index.css";
 
@@ -15,6 +15,12 @@ const SearchBar = ({ search }: Props) => {
     setSearchCity(e.target.value);
   };
 
+  const onKeyPress: KeyboardEventHandler = (e) => {
+    if (e.key === "Enter") {
+      search(searchCity);
+    }
+  };
+
   const onSubmit = () => {
     search(searchCity);
   };
@@ -26,6 +32,7 @@ const SearchBar = ({ search }: Props) => {
         type="text"
         value={searchCity}
         onChange={onSearchCityChange}
+        onKeyPress={onKeyPress}
         placeholder={SEARCH_INPUT_PLACEHOLDER}
       />
       <button
