@@ -1,3 +1,4 @@
+import React from "react";
 import useWeather from "../../hooks/useWeather";
 import { composeIconURL } from "../../network/weather";
 
@@ -24,4 +25,4 @@ const Weather = () => {
   );
 };
 
-export default Weather;
+export default React.memo(Weather);
